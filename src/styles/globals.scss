@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(192,132,252,1) 0%, rgba(236,72,153,1) 50%, rgba(239,68,68,1) 100%);
+}

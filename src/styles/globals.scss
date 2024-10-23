@@ -1,14 +1,17 @@
-*{
+@import './variables.scss';
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     font-size: 16px;
 }
 
-body{
+body {
+    overflow-y: hidden;
     min-height: 100vh;
-    background: linear-gradient(135deg, rgba(192,132,252,1) 0%, rgba(236,72,153,1) 50%, rgba(239,68,68,1) 100%);
+    background: linear-gradient(135deg, $gradiant-background-purple, $gradiant-background-pink, $gradiant-background-red);
 }

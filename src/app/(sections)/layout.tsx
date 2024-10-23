@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import Title from '@/components/atoms/Title';
-import Navbar from '@/components/organism/navbar';
+import Navbar from '@/components/organism/navbar/navbar';
 import styles from './layout.module.scss'; 
 
 interface LayoutProps {

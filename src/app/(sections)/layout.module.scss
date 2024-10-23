@@ -4,9 +4,9 @@
 .layoutContainer{
     @include border-radius(0.8rem);
     width: 80%;
-    margin: 2vh auto;
+    margin: 4vh auto;
     background-color: $background-white;
-    height: 97vh;
+    height: 92vh;
 
     .title{
         text-align: center;

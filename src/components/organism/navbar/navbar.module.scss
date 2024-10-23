@@ -1,0 +1,75 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2rem;
+    align-items: center;
+
+    .activeVacancies{
+        background-color: $button-vacancies ;
+        color: $text-white !important;
+
+
+        &:hover{
+            background-color: $button-vacancies-hover;
+        }
+    }
+
+    .activeCompanies{
+        background-color: $button-companies;
+        color: $text-white !important;
+
+
+        &:hover{
+            background-color: $button-companies-hover;
+        }
+    }
+
+
+    .linksContainer {     
+        display: flex;
+        background: $background-gray-navigation-buttons;
+        @include border-radius(5rem);
+        
+
+        .icon { 
+            color: $text-light-gray;
+            @include border-radius(5rem);
+            padding: 0.4rem 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    }
+
+    .inputsContainer{
+        @include border-radius(5rem);
+        color: $text-medium-gray;
+        display: flex;
+        align-items: center;
+        padding: 0.4rem 1.2rem;
+        gap: 0.5rem;
+        border: 0.15rem solid $border-gray;
+
+        .input{
+            border: none;
+            color: $text-medium-gray;
+            font-family: var(--font-principal);
+            font-weight: 500;
+
+            &:active{
+                outline: none;
+            }
+
+            &:focus{
+                outline: none;
+            }
+        }
+
+    }
+}

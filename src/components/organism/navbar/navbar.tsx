@@ -11,7 +11,7 @@ const links = [
 ];
 
 const Navbar: React.FC = () => {
-    const pathname = usePathname(); 
+    const pathname = usePathname();
 
     return (
         <nav className={styles.nav}>

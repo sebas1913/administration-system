@@ -1,0 +1,31 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+
+.inputField {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 1rem 0;
+
+    .input {
+        @include border-radius(0.5rem);
+        box-sizing: border-box;
+        padding: 0.5rem;
+        border: none;
+        font-family: var(--font-principal);
+        border: 0.1rem solid $border-gray;
+
+
+        &:focus {
+            outline: 0.2rem double black;
+            
+        }
+
+    }
+
+    .label {
+        margin: 0.1rem;
+    }
+
+}

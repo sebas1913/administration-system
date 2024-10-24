@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Head from '@/components/organism/header/Header';
+import ButtonAdd from '@/components/molecules/Button-add/ButtonAdd';
 
 function page() {
     return (
-        <div>
-            <h1>Hola</h1>
-        </div>
+        <Head title='Compañías'>
+            <ButtonAdd text='Agregar compañía'></ButtonAdd>
+        </Head>
     )
 }
 

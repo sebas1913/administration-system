@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Head from '@/components/organism/header/Header';
+import ButtonAdd from '@/components/molecules/Button-add/ButtonAdd';
 
-function page() {
+function Page() {
     return (
-        <div>
-            <h1>Vacantes</h1>
-        </div>
-    )
+        <Head title="Vacantes">
+            <ButtonAdd text="Agregar vacantes" />
+        </Head>
+    );
 }
 
-export default page;
+export default Page;

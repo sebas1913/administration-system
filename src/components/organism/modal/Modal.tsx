@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import styles from './modal.module.scss';
-import { CgCloseO } from 'react-icons/cg';
-import Button from '../atoms/Button';
+import Button from '../../atoms/Button/Button';
+import { icons } from '@/components/atoms/Icons';
 
 interface ModalProps {
     isVisible: boolean;
@@ -29,7 +29,7 @@ const Modal: React.FC<ModalProps> = ({ isVisible, onClose, children }) => {
             <div className={styles.modalContent}>
                 <div className={styles.containerButton}>
                     <Button className={styles.closeButton} onClick={onClose}>
-                        <CgCloseO />
+                        {icons.close}
                     </Button>
                 </div>
                 {children}

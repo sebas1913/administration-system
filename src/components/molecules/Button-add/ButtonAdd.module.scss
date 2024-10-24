@@ -1,0 +1,25 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+
+.button {
+    @include border-radius (5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-family: var(--font-principal);
+    cursor: pointer;
+    width: 10rem;
+    height: 2rem;
+}
+
+.activeVacancies {
+    background-color: $button-vacancies;
+    color: $text-white;
+}
+
+.activeCompanies {
+    background-color: $button-companies;
+    color: $text-white;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import InputWithLabel from '../Input-with-label/InputWithLabel';
+import InputWithLabel from '../input-with-label/InputWithLabel';
 import Title from '../../atoms/Title';
-import Button from '@/components/atoms/Button/Button';
+import Button from '@/components/atoms/button/Button';
 import { InputProps } from '@/components/atoms/Input';
 import { LabelProps } from '@/components/atoms/Label';
 import { usePathname } from 'next/navigation';

@@ -1,31 +1,42 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-
 .inputField {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin: 1rem 0;
+    font-weight: 500;
 
     .input {
+        color: $text-dark-gray;
         @include border-radius(0.5rem);
         box-sizing: border-box;
         padding: 0.5rem;
         border: none;
         font-family: var(--font-principal);
         border: 0.1rem solid $border-gray;
-
+        font-size: 1rem;
+        font-weight: 500;
 
         &:focus {
-            outline: 0.2rem double black;
-            
+            outline: none; /* Preventa un borde por defecto */
         }
-
     }
 
     .label {
         margin: 0.1rem;
     }
+}
 
+.pathVacancies .input {
+    &:focus {
+        outline: 0.2rem double $button-vacancies;
+    }
+}
+
+.pathCompanies .input {
+    &:focus {
+        outline: 0.2rem double $button-companies;
+    }
 }

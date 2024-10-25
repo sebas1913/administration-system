@@ -5,6 +5,7 @@ import styles from './header.module.scss';
 import Title from '@/components/atoms/Title';
 import Modal from '../modal/Modal';
 import FormVacancies from '../form-vacancies/Form-vacancies';
+import FormCompanies from '../form-companies/Form-companies';
 
 interface HeaderProps {
     children: ReactElement<{ onClick?: () => void }>;
@@ -24,7 +25,9 @@ const Head: React.FC<HeaderProps> = ({ children, title }) => {
                 <FormVacancies />
             );
         } else if (pathname === '/companies') {
-            return null; //Otro form
+            return (
+                <FormCompanies />
+            );
         }
         return null;
     };

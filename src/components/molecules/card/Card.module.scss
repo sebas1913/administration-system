@@ -1,0 +1,15 @@
+@import '../../../styles/mixins.scss';
+
+.card{
+    @include border-radius(0.5rem);
+    width: 30%;
+    @include box-shadow();
+    padding: 1rem;
+
+    .actions{
+        text-align: right;
+        .editButton, .deleteButton{
+            width: 8%;
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import { usePathname } from 'next/navigation';
 import Input from '@/components/atoms/Input';
 import Label from '@/components/atoms/Label';
 import styles from './InputWithLabel.module.scss';
@@ -11,8 +11,19 @@ interface InputWithLabelProps {
 }
 
 const InputWithLabel: React.FC<InputWithLabelProps> = ({ labelProps, inputProps }) => {
+    const pathname = usePathname();
+
+    const getPathColor = () => {
+        if (pathname === '/vacancies') {
+            return styles.pathVacancies;
+        } else if (pathname === '/companies') {
+            return styles.pathCompanies;
+        }
+        return '';
+    };
+
     return (
-        <div className={styles.inputField}>
+        <div className={`${styles.inputField} ${getPathColor()}`}>
             <Label className={styles.label} {...labelProps} />
             <Input className={styles.input} {...inputProps} />
         </div>

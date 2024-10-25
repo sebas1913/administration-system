@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from 'next/navigation';
-import Button from "@/components/atoms/Button/Button";
+import Button from "@/components/atoms/button/Button";
 import styles from './ButtonAdd.module.scss';
 import { icons } from "@/components/atoms/Icons";
 

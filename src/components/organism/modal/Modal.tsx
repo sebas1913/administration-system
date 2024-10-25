@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styles from './modal.module.scss';
-import Button from '../../atoms/Button/Button';
+import Button from '../../atoms/button/Button';
 import { icons } from '@/components/atoms/Icons';
 
 interface ModalProps {

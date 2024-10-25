@@ -1,8 +1,8 @@
-interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {};
+export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {};
 
 const Textarea: React.FC<TextAreaProps> = (props) => {
     return(
-        <textarea name="" id="" {...props}></textarea>
+        <textarea {...props}></textarea>
     )
 }
 

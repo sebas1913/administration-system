@@ -1,17 +1,21 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
+.form{
+    padding: 0.5rem;
 
-.title {
-    margin: 1.5rem 0;
+    .title {
+        margin: 1.5rem 0;
+    }
+    
+    .buttonVacancies {
+        background-color: $button-vacancies;
+        color: $text-white;
+    }
+    
+    .buttonCompanies {
+        background-color: $button-companies;
+        color: $text-white;
+    }
 }
 
-.buttonVacancies {
-    background-color: $button-vacancies;
-    color: $text-white;
-}
-
-.buttonCompanies {
-    background-color: $button-companies;
-    color: $text-white;
-}

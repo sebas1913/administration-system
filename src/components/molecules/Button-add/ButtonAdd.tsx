@@ -21,5 +21,5 @@ const ButtonAdd: React.FC<ButtonAddProps> = ({ text, onClick }) => {
         </Button>
     );
 }
-
+6
 export default ButtonAdd;

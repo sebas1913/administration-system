@@ -1,15 +1,54 @@
 @import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
 
-.card{
-    @include border-radius(0.5rem);
-    width: 30%;
+.card {
+    @include border-radius(0.8rem);
+    width: 32%;
+    height: 11rem;
     @include box-shadow();
-    padding: 1rem;
+    padding: 1.5rem;
 
-    .actions{
+
+    .content{
+        margin: 0.5rem 0;
+    }
+
+    .actions {
         text-align: right;
-        .editButton, .deleteButton{
-            width: 8%;
+
+        .editButton,
+        .deleteButton {
+            width: auto;
+            height: auto;
+            padding: 0.25rem 0.6rem;
+            margin: 0.2rem;
+            background: none;
+            border: 0.1rem solid $border-gray;
+            @include border-radius(0.2rem);
         }
+
+        .deleteButton {
+            color: $text-button-delete;
+
+            &:hover {
+                color: $text-button-delete-hover;
+            }
+        }
+    }
+}
+
+.buttonVacancies {
+    color: $button-vacancies;
+
+    &:hover {
+        color: $button-vacancies-hover;
+    }
+}
+
+.buttonCompanies {
+    color: $button-companies;
+
+    &:hover {
+        color: $button-companies-hover;
     }
 }

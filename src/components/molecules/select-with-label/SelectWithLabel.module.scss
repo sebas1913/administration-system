@@ -1,14 +1,14 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-.inputField {
+.selectField {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin: 1rem 0;
     font-weight: 500;
 
-    .input {
+    .select {
         color: $text-dark-gray;
         @include border-radius(0.5rem);
         box-sizing: border-box;
@@ -26,14 +26,8 @@
     }
 }
 
-.pathVacancies .input {
+.pathVacancies .select {
     &:focus {
         outline: 0.3rem double $button-vacancies;
-    }
-}
-
-.pathCompanies .input {
-    &:focus {
-        outline: 0.3rem double $button-companies;
     }
 }

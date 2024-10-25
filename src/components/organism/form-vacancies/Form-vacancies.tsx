@@ -10,7 +10,28 @@ const FormVacancies: React.FC = () => {
         },
         {
             labelProps: { htmlFor: 'description', children: 'Descripción' },
-            inputProps: { id: 'description', type: 'text', name: 'description' }
+            textareaProps: { id: 'description', name: 'description' }
+        },
+        {
+            labelProps: { htmlFor: 'country', children: 'Estado' },
+            selectProps: {
+                id: 'country',
+                name: 'country',
+                options: [
+                    { label: 'Open', value: 'open' }
+                ],
+            }
+        },
+        {
+            labelProps: { htmlFor: 'country', children: 'Compañía' },
+            selectProps: {
+                id: 'country',
+                name: 'country',
+                options: [
+                    { label: 'Selecciona una compañía', value: '' },
+                    { label: 'SoftwareONE', value: 'SoftwareONE' }
+                ],
+            }
         }
     ];
 

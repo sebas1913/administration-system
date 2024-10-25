@@ -15,22 +15,14 @@ const CardVacancies: React.FC = () => {
 
     return (
         <div className={styles.cardsContainer}>
+
+    
             <Card title="Vacante" onEdit={handleEdit} onDelete={handleDelete}>
                 <p>Infoo</p>
                 <p>Descripcioooon</p>
             </Card>
-            <Card title="Vacante" onEdit={handleEdit} onDelete={handleDelete}>
-                <p>Infoo</p>
-                <p>Descripcioooon</p>
-            </Card>
-            <Card title="Vacante" onEdit={handleEdit} onDelete={handleDelete}>
-                <p>Infoo</p>
-                <p>Descripcioooon</p>
-            </Card>
-            <Card title="Vacante" onEdit={handleEdit} onDelete={handleDelete}>
-                <p>Infoo</p>
-                <p>Descripcioooon</p>
-            </Card>
+
+            
         </div>
     );
 };

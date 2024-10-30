@@ -1,6 +1,20 @@
+@import '../../../styles/variables.scss';
+
 .cardsContainer{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 1rem;
+    max-width: 100%;
+
+    .paragraph{
+        color: $text-light-gray;
+    }
+
+    .containerPagination{
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }

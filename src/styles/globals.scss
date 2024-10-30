@@ -6,11 +6,14 @@
     box-sizing: border-box;
 }
 
-html {
+html, body {
+    height: 100%; /* Asegura que el html y body ocupen el 100% de la ventana */
+    overflow: hidden; /* Evita cualquier desplazamiento vertical y horizontal */
     font-size: 16px;
+    background: linear-gradient(135deg, $gradiant-background-purple, $gradiant-background-pink, $gradiant-background-red);
 }
 
 body {
-    overflow-y: hidden;
-    background: linear-gradient(135deg, $gradiant-background-purple, $gradiant-background-pink, $gradiant-background-red);
+    touch-action: none; /* Desactiva el zoom en dispositivos táctiles */
+    user-select: none; /* Opcional: evita la selección de texto */
 }

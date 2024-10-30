@@ -6,7 +6,7 @@ import Title from '@/components/atoms/Title';
 
 interface CardProps {
     title: string;
-    onEdit: () => void;
+    onEdit?: () => void;
     onDelete: () => void;
     children?: React.ReactNode;
 }

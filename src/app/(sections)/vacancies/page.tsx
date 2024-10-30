@@ -1,15 +1,32 @@
 import React from 'react';
-import Head from '@/components/organism/header/Header';
-import ButtonAdd from '@/components/molecules/button-add/ButtonAdd';
 import CardVacancies from '@/components/organism/cards-page/Card-vacancies';
+import { VacancieService } from '@/services/vacancie.service';
 
-function Page() {
+interface IProps {
+    searchParams: {
+        page: string;
+        size: string;
+        name: string;
+    }
+}
+
+export const generateMetadata = async ({ searchParams}: IProps)=> {
+    const page = searchParams.page ?? 1;
+    return {
+      title: `Vacantes página ${page}`,
+      description: 'Gestión de vacantes'
+    }
+  }
+
+async function Page({ searchParams }: IProps) {
+    const vacancieService = new VacancieService();
+    const page = searchParams.page ? parseInt(searchParams.page) : 0;
+    const size = searchParams.size ? parseInt(searchParams.size) : 6;
+    const data = await vacancieService.find(page, size);
+
     return (
         <>
-            <Head title="Vacantes">
-                <ButtonAdd text="Agregar vacantes" />
-            </Head>
-            <CardVacancies />
+            <CardVacancies data={data}/>
         </>
     );
 }

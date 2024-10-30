@@ -1,7 +1,7 @@
 import { usePathname } from 'next/navigation';
 import styles from './TextareaWithLabel.module.scss';
 import Label, { LabelProps } from '@/components/atoms/Label';
-import Textarea, { TextAreaProps } from '@/components/atoms/textarea';
+import Textarea, { TextAreaProps } from '@/components/atoms/Textarea';
 import React from 'react';
 
 interface TextareaWhithLabelProps{

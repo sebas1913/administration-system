@@ -1,33 +1,31 @@
 "use client";
-import React, { useState, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { usePathname } from 'next/navigation';
 import styles from './header.module.scss';
 import Title from '@/components/atoms/Title';
 import Modal from '../modal/Modal';
 import FormVacancies from '../form-vacancies/Form-vacancies';
 import FormCompanies from '../form-companies/Form-companies';
+import { ICompany } from '@/models/companie.model';
+import { ICreateVacancie } from '@/models/vacancie.model';
 
 interface HeaderProps {
     children: ReactElement<{ onClick?: () => void }>;
     title: string;
+    companyToEdit?: ICompany | null;
+    vacantToEdit?: ICreateVacancie | null;
+    isModalOpen: boolean;    
+    closeModal: () => void;  
 }
 
-const Head: React.FC<HeaderProps> = ({ children, title }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+const Head: React.FC<HeaderProps> = ({ children, vacantToEdit, title, companyToEdit, isModalOpen, closeModal }) => { 
     const pathname = usePathname();
-
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
 
     const renderForm = () => {
         if (pathname === '/vacancies') {
-            return (
-                <FormVacancies />
-            );
+            return <FormVacancies closeModal={closeModal} />;
         } else if (pathname === '/companies') {
-            return (
-                <FormCompanies />
-            );
+            return <FormCompanies closeModal={closeModal} companyEdit={companyToEdit} companyCreat={!companyToEdit} />; 
         }
         return null;
     };
@@ -38,7 +36,7 @@ const Head: React.FC<HeaderProps> = ({ children, title }) => {
                 <Title level={2} className={styles.title}>{title}</Title>
             </div>
             <div>
-                {React.isValidElement(children) && React.cloneElement(children, { onClick: openModal })}
+                {children}
             </div>
             {isModalOpen && (
                 <Modal isVisible={isModalOpen} onClose={closeModal}>

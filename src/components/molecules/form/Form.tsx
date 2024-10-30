@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 import styles from './form.module.scss';
 import SelectWithLabel from '../select-with-label/SelectWithLabel';
 import { SelectProps } from '@/components/atoms/Select';
-import { TextAreaProps } from '@/components/atoms/textarea';
+import { TextAreaProps } from '@/components/atoms/Textarea';
 import TextareaWithLabel from '../textarea-with-label/TextareaWithLabel';
 
 interface FormField {
@@ -38,9 +38,9 @@ const FormBase: React.FC<FormBaseProps> = ({ title, fields, onSubmit, submitButt
         return '';
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.target as HTMLFormElement);
+        const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries());
         onSubmit(data);
     };

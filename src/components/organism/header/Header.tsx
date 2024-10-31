@@ -23,7 +23,7 @@ const Head: React.FC<HeaderProps> = ({ children, vacantToEdit, title, companyToE
 
     const renderForm = () => {
         if (pathname === '/vacancies') {
-            return <FormVacancies closeModal={closeModal} />;
+            return <FormVacancies closeModal={closeModal} vacancieEdit={vacantToEdit} vacancieCreate={!vacantToEdit}/>;
         } else if (pathname === '/companies') {
             return <FormCompanies closeModal={closeModal} companyEdit={companyToEdit} companyCreat={!companyToEdit} />; 
         }

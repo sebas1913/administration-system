@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Card from '@/components/molecules/card/Card';
 import styles from './card-page.module.scss';
-import { ICreateVacancie, IVacanciesResponse } from '@/models/vacancie.model';
+import { IVacancy, IVacanciesResponse } from '@/models/vacancie.model';
 import { VacancieService } from '@/services/vacancie.service';
 import { useRouter } from 'next/navigation';
 import Head from '../header/Header';
@@ -15,7 +15,7 @@ interface IProps {
 }
 
 const CardVacancies: React.FC<IProps> = ({ data }) => {
-    const [vacancieToEdit, setVacantToEdit] = useState<ICreateVacancie | null>(null);
+    const [vacancieToEdit, setVacantToEdit] = useState<IVacancy | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const vacancieService = new VacancieService();
     const router = useRouter();
@@ -23,14 +23,18 @@ const CardVacancies: React.FC<IProps> = ({ data }) => {
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
-    const handleEdit = (vacancie: ICreateVacancie) => {
-        setVacantToEdit(vacancie)
+    const handleEdit = (vacancie: IVacancy) => {
+        setVacantToEdit(vacancie);
         openModal();
     };
 
-    const handleDelete = () => {
-        console.log('Eliminado');
-
+    const handleDelete = async (id: number) => { 
+        try {
+            await vacancieService.destroy(id);
+            router.refresh();
+        } catch (error) {
+            console.error("Error al eliminar la vacante:", error);
+        }
     };
 
     return (
@@ -41,7 +45,6 @@ const CardVacancies: React.FC<IProps> = ({ data }) => {
                 isModalOpen={isModalOpen}
                 closeModal={closeModal}
             >
-
                 <ButtonAdd
                     text='Agregar vacante'
                     onClick={() => {
@@ -54,11 +57,15 @@ const CardVacancies: React.FC<IProps> = ({ data }) => {
             <div className={styles.cardsContainer}>
                 {data.content.map((vacant) => (
                     <Card
-                        key={vacant.id}
-                        onDelete={handleDelete}
-                        title={vacant.title}>
-                        <Paragraph>{vacant.description}</Paragraph>
-                    </Card>
+                    key={vacant.id}
+                    onDelete={() => handleDelete(vacant.id)}
+                    onEdit={() => handleEdit(vacant)}
+                    title={vacant.title} 
+                >
+                    <Paragraph>{vacant.description}</Paragraph>
+                    <Paragraph>Estado: {vacant.status}</Paragraph> 
+                    <Paragraph>Compañía: {vacant.company?.name}</Paragraph>
+                </Card>
                 ))}
                 <div className={styles.containerPagination}>
                     <PaginationVacancie data={data} />

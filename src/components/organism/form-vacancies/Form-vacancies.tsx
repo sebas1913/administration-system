@@ -2,13 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import FormBase from '@/components/molecules/form/Form';
 import styles from './form.module.scss';
-import { ICreateVacancie } from '@/models/vacancie.model';
+import { IVacancy } from '@/models/vacancie.model'; // Importa la interfaz IVacancy
 import { useRouter } from 'next/navigation';
 import { CompanyService } from '@/services/company.service';
 import { VacancieService } from '@/services/vacancie.service';
 
 interface IProps {
-    vacancieEdit?: ICreateVacancie | null;
+    vacancieEdit?: IVacancy | null; // Cambia ICreateVacancie a IVacancy
     closeModal: () => void;
 }
 
@@ -47,11 +47,12 @@ const FormVacancies: React.FC<IProps> = ({ vacancieEdit, closeModal }) => {
         }
     }, [vacancieEdit]);
 
-    const handleSubmit = async (data: ICreateVacancie) => {
+    const handleSubmit = async () => {
+        const data: IVacancy = { id: vacancieEdit?.id || 0, title, description, status, companyId };
+
         try {
             if (vacancieEdit) {
-                console.log('actualizando');
-                
+                await vacancieService.put(vacancieEdit.id, data);
             } else {
                 await vacancieService.create(data);
             }
@@ -115,8 +116,8 @@ const FormVacancies: React.FC<IProps> = ({ vacancieEdit, closeModal }) => {
             classname={styles.form}
             title='Agregar vacante'
             fields={fields}
-            onSubmit={() => handleSubmit({ title, description, status, companyId })}
-            submitButtonText="Agregar Vacante"
+            onSubmit={handleSubmit}
+            submitButtonText='Agregar vacante'
         />
     );
 };

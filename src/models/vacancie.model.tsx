@@ -1,38 +1,26 @@
+import { ICreateCompany } from "./companie.model";
+
+export interface IVacancy {
+    id: number; 
+    title: string;
+    description: string;
+    status: string;
+    companyId: string;
+    company?: ICreateCompany;
+}
+
 export interface IVacanciesResponse {
     totalPages:       number;
     totalElements:    number;
     pageable:         Pageable;
     numberOfElements: number;
     size:             number;
-    content:          Content[];
+    content:          IVacancy[]; 
     number:           number;
     sort:             Sort;
-    first:            boolean;
-    last:             boolean;
-    empty:            boolean;
 }
 
-export interface ICreateVacancie {
-    title: string;
-    description: string;
-    status: string;
-    companyId: string;
-}
 
-export interface Content {
-    id:          number;
-    title:       string;
-    description: string;
-    status:      string;
-    company:     Company;
-}
-
-export interface Company {
-    id:       string;
-    name:     string;
-    location: string;
-    contact:  string;
-}
 
 export interface Pageable {
     pageNumber: number;
